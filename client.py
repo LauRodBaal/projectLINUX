@@ -52,7 +52,7 @@ client_socket.send(username.encode('utf-8'))
 # Confirmation or rejection
 confirm_msg = client_socket.recv(1024).decode('utf-8')
 print(confirm_msg)
-print("\n Available commands:")
+print("\nAvailable commands:")
 print("/users → list connected users")
 print("/quit  → exit the chat")
 print("@username <message> → send a message to someone\n")
