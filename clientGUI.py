@@ -42,7 +42,7 @@ class ChatClient:
             wrap=tk.WORD,
             width=60,
             height=20,
-            font=('Segoe UI', 10),
+            font=('Arial', 10),
             state='disabled',
             bg='white',
             fg='black'
@@ -61,7 +61,7 @@ class ChatClient:
 
         self.message_entry = tk.Entry(
             bottom_frame,
-            font=('Segoe UI', 12),
+            font=('Arial', 12),
             width=50
         )
         self.message_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 5))
@@ -73,7 +73,7 @@ class ChatClient:
             command=self.send_message,
             bg='#4CAF50',
             fg='white',
-            font=('Segoe UI', 10, 'bold'),
+            font=('Arial', 10, 'bold'),
             relief=tk.FLAT
         )
         send_button.pack(side=tk.LEFT, padx=(0, 5))
@@ -95,7 +95,7 @@ class ChatClient:
             command=self.on_closing,
             bg='#f44336',
             fg='white',
-            font=('Segoe UI', 10, 'bold'),
+            font=('Arial', 10, 'bold'),
             relief=tk.FLAT
         )
         quit_button.pack(side=tk.LEFT)
@@ -131,11 +131,11 @@ class ChatClient:
             except Exception as e:
                 print(f"Logo load error: {e}")
 
-            prompt_label = tk.Label(login_window, text=initial_msg, font=('Segoe UI', 10), bg='white')
+            prompt_label = tk.Label(login_window, text=initial_msg, font=('Arial', 10), bg='white')
             prompt_label.pack(pady=(0, 5))
 
             entry_var = tk.StringVar()
-            entry_field = tk.Entry(login_window, textvariable=entry_var, font=('Segoe UI', 12))
+            entry_field = tk.Entry(login_window, textvariable=entry_var, font=('Arial', 12))
             entry_field.pack(pady=(0, 10))
             entry_field.focus()
 
@@ -168,10 +168,10 @@ class ChatClient:
                 self.root.destroy()
                 return
 
-            self.update_chat_display("\ud83d\udccc Available commands:\n" +
-                                    "\ud83e\udde3 /users \u2192 list connected users\n" +
-                                    "\u274c /quit \u2192 exit the chat\n" +
-                                    "\ud83d\udcc1 @username <message> \u2192 send a private message\n",
+            self.update_chat_display("Available commands:\n" +
+                                    "/users --> list connected users\n" +
+                                    "/quit --> exit the chat\n" +
+                                    "@username <message> --> send a private message\n",
                                     tag="system")
             self.update_chat_display(f"\n{confirm_msg}\n", tag="system")
             self.status_bar.config(text=f"Connected as {self.username}")
