@@ -27,7 +27,7 @@ def send_messages(sock):
             msg = input(">> ").strip()
             if msg == "/quit":
                 sock.send("/quit".encode('utf-8'))
-                print("👋 Logging out...")
+                print("Logging out...")
                 stop_threads = True
                 break
             elif msg == "/users":
