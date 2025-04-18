@@ -232,7 +232,14 @@ class ChatClient:
             messagebox.showerror("Error", "Failed to send message")
 
     def request_user_list(self):
-        self.send_message()
+        """Handle the Users button click by sending /users command"""
+        try:
+            now = datetime.now().strftime("%H:%M")
+            self.update_chat_display(f"[{now}] Requesting user list...\n", tag="system")
+            self.client_socket.send("/users".encode('utf-8'))
+        except:
+            now = datetime.now().strftime("%H:%M")
+            self.update_chat_display(f"[{now}] Failed to request user list\n", tag="error")
 
     def update_chat_display(self, message, tag="normal"):
         self.chat_display.config(state='normal')
